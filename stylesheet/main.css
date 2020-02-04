@@ -35,6 +35,8 @@
   width: auto;
   padding: 2px;
   transition: .1s;
+  animation: resize 1s forwards infinite;
+
 }
 
 .bush:nth-child(1){
@@ -125,7 +127,8 @@
   position: absolute;
   top: 100px;
   left: -200px;
-  animation-name: drive;
+  animation-name: drive,
+                  changelane;
   animation-duration: 4s;
   animation-fill-mode: both; 
   animation-iteration-count: infinite;
@@ -141,6 +144,11 @@
   to{ transform: translateX(2000px)}
 }
 
+@keyframes resize{
+  from{ height:63px}
+  to{ height:60px}
+}
+
 @keyframes wind{
   from{ left: -300px}
   to{left: 100%}
@@ -151,9 +159,15 @@
   0%{ top:-40px}
   50%{ top: -80px}
   100%{ top: -40%}
-
 }
-
+@keyframes changelane {
+  0%{ top: 100px}
+  25%{ top: 20px}
+  50%{ top: 120px}
+  60%{ top: 10px}
+  75%{ top: 150px}
+  100%{ top: 50px}
+}
 
 
 .circle{
