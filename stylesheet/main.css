@@ -1,0 +1,172 @@
+*, body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  /* overflow: hidden; */
+}
+
+.sky, .grass, .road {
+  position: relative;
+}
+
+.sky {
+  background-color: lightblue;
+  text-align: center;
+  height: 40%;
+}
+
+.grass{
+  background-color: green;
+  height: 30%;
+}
+
+.road {
+  background-color: gray;
+  width: 100%;
+  border-top: 10px solid lightgray;
+  height: 30%;
+  box-sizing: border-box;
+}
+
+.bush {
+  height: 60px;
+  position: absolute;
+  width: auto;
+  padding: 2px;
+  transition: .1s;
+}
+
+.bush:nth-child(1){
+  left: 20px;
+  top: -25px;
+}
+.bush:nth-child(2){
+  left: 500px;
+  top: 100px;
+}
+.bush:nth-child(3){
+  left: 700px;
+  top: 50px;
+}
+.bush:nth-child(4){
+  left: 900px;
+  top: 150px;
+}
+
+.bush:hover {
+  height: 70px;
+  transform: rotate(20deg);
+  width: auto;
+}
+
+.line {
+  border: dashed 5px white;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+.mario, .luigi {
+  height: 100px;
+  width: 100px;
+}
+
+.cloud{
+  position: absolute;
+  width: auto;
+}
+
+.cloud:nth-child(1){
+  top: 120px;
+  height: 200px;
+  opacity: .5;
+  animation: wind 37s linear infinite reverse;
+}
+
+.cloud:nth-child(2){
+  top: 0;
+  height: 300px;
+  opacity: .8;
+  animation: wind 27s linear infinite reverse;
+}
+
+.cloud:nth-child(3){
+  top: 0;
+  height: 170px;
+  left: 50px;
+  animation: wind 17s linear infinite reverse;
+}
+
+.mario {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  /* animation chain */
+  animation: drive 5s both infinite,
+             jump .3s .8s ease-in ;
+  animation-timing-function: cubic-bezier(0, 0.77, 1, .28);
+
+             
+
+  /*
+  animation-name: drive;
+  animation-duration: 3s;
+  Fill Mode :Forward takes the last prop of drive keyframe, BOTH will take to and from 
+  animation-fill-mode: both; 
+  animation-iteration-count: infinite;
+  Google cubic bezier to see how it works, otherwise liner or ease are easy to use 
+  animation-timing-function: cubic-bezier(0, 0.77, 1, .28);
+  */
+}
+
+.luigi{
+  position: absolute;
+  top: 100px;
+  left: -200px;
+  animation-name: drive;
+  animation-duration: 4s;
+  animation-fill-mode: both; 
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.2, 1, 2, .2);
+  /* direction will default to normal if left alone */
+  animation-direction: alternate;
+}
+
+
+
+@keyframes drive{
+  from{ transform: translateX(-100)}
+  to{ transform: translateX(2000px)}
+}
+
+@keyframes wind{
+  from{ left: -300px}
+  to{left: 100%}
+}
+
+/* each number between 0 to 100 is a state */
+@keyframes jump {
+  0%{ top:-40px}
+  50%{ top: -80px}
+  100%{ top: -40%}
+
+}
+
+
+
+.circle{
+  border-radius: 100px;
+  background-color: lightpink;
+  padding: 25px;
+  width: 30px;
+  color: white;
+  cursor: pointer;
+  transition: 1s;
+}
+.circle:hover {
+  background-color: salmon;
+  transform: rotate(360deg);
+}
+
