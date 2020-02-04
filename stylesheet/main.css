@@ -162,10 +162,10 @@
 }
 @keyframes changelane {
   0%{ top: 100px}
-  25%{ top: 20px}
-  50%{ top: 120px}
+  20%{ top: 20px}
+  40%{ top: 120px}
   60%{ top: 10px}
-  75%{ top: 150px}
+  80%{ top: 150px}
   100%{ top: 50px}
 }
 
